@@ -9,8 +9,7 @@ export const AppointmentsPage = ({ appointments, onCancel, onBook, doctors }) =>
   const [filter, setFilter] = useState("all");
   const [showBook, setShowBook] = useState(false);
 
-  const filtered = filter==="all" ? appointments : appointments.filter(a=>a.status===filter);
-
+  const filtered = filter.toLowerCase()==="all" ? appointments : appointments.filter(a=>a.status.toLowerCase()===filter.toLowerCase());
   const handleBooked = (appt) => { setShowBook(false); onBook(appt); };
 
   return (
